@@ -55,7 +55,7 @@ if not filteredLinks:
 for link in filteredLinks:
 	s1=True;
         
-	url='http://torrentz(dot)eu'+link #change the link
+	url='http://torrentz.eu'+link #change the link
 	torrentsResults= requests.get(url)
 	torrentTree=html.fromstring(torrentsResults.content)	
 	#checking if the filelist has a file with extension mp4 or avi !!!! you know other video formats? just add a or case.
@@ -94,7 +94,11 @@ for link in filteredLinks:
 
 						"""for using magnet link"""
 						torrentLinkList=finalTree.xpath('//a[@class="kaGiantButton "]/@href')
+						#for Linux
 						os.system(' xdg-open '+torrentLinkList[0])
+						#for windows
+						os.startfile(torrentLinkList[0])
+
 						s=1
 						break
 						"""for downlading torrent file uncomment next line"""
